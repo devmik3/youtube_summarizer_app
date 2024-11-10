@@ -8,7 +8,6 @@ from pytube.extract import initial_data, initial_player_response
 from pytube.request import get
 import logging
 import json
-from dotenv import load_dotenv
 
 # 2. Configuration and initialization
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
