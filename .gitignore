@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 .DS_Store
 summaries.md
-summaries.json 
+summaries.json
+.streamlit/secrets.toml 

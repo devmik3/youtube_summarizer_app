@@ -12,11 +12,13 @@ from dotenv import load_dotenv
 
 # 2. Configuration and initialization
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-if not os.getenv("OPENAI_API_KEY"):
-    st.error("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
+# Initialize OpenAI client using Streamlit secrets
+try:
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+except Exception as e:
+    st.error("OpenAI API key not found in Streamlit secrets. Please add it to your secrets.toml file.")
+    logging.error(f"Failed to initialize OpenAI client: {str(e)}")
     st.stop()
 
 # 3. Helper functions
